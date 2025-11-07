@@ -97,7 +97,7 @@ The `active` property allows multiple bulk discounts to exist in the rules array
 
 ## 🧪 Testing
 
-Unit tests are written using Vitest and Pinia's testing utilities. Two test scenarios are provided (/tests/unit/cart.spec.js):
+Unit tests are written using Vitest and Pinia's testing utilities. Two test scenarios are provided (/tests/cart.spec.js):
 
 - Subtotal below €50 → Only category discount applies
 - Subtotal over €50 → Category + bulk discount apply
