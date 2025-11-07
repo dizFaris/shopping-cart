@@ -4,6 +4,10 @@ This project implements a simple shopping cart system with category-based and bu
 
 ## 🚀 How to Run the Project
 
+### 🛠️ Requirements
+
+- Node.js version 20.19.0 or newer
+
 1. Install dependencies
 
 ```bash
