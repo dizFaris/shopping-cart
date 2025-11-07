@@ -10,6 +10,12 @@ const VAT = 0.2
 export const useCartStore = defineStore('cart', () => {
   const items = ref([])
 
+  const totalItems = computed(() => {
+    return items.value.reduce((sum, item) => {
+      return sum + item.count
+    }, 0)
+  })
+
   const addItem = (newItem) => {
     const existing = items.value.find((i) => i.name === newItem.name)
     if (existing) {
@@ -78,6 +84,7 @@ export const useCartStore = defineStore('cart', () => {
 
   return {
     items,
+    totalItems,
     addItem,
     removeItem,
     incrementItemCount,

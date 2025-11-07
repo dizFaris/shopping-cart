@@ -3,6 +3,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import IconCart from './components/icons/IconCart.vue'
 import ProductList from './components/ProductList.vue'
 import Cart from './components/Cart.vue'
+import { useCartStore } from '@/stores/cart'
+const cart = useCartStore()
 
 const isCartOpen = ref(false)
 const isMobile = ref(window.innerWidth <= 768)
@@ -26,6 +28,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
       <p>Shopping cart demo</p>
       <button @click="toggleCart">
         <IconCart />
+        <span v-if="cart.totalItems > 0" class="counter">{{ cart.totalItems }}</span>
       </button>
     </div>
   </header>
@@ -60,6 +63,25 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
     align-items: center;
     background-color: $color-accent-secondary;
     cursor: pointer;
+    position: relative;
+
+
+    .counter {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 4px;
+      line-height: 1;
+    }
 
     &:hover {
       filter: brightness(110%);

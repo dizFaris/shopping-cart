@@ -1,6 +1,7 @@
 <script setup>
 import CartItem from './CartItem.vue'
 import { useCartStore } from '@/stores/cart'
+import { formatAT } from '@/utils/currency'
 const cart = useCartStore()
 </script>
 
@@ -16,23 +17,23 @@ const cart = useCartStore()
     <div class="footer">
       <div class="line">
         <span class="label">Subtotal:</span>
-        <span class="amount">€ {{ cart.subtotal.toFixed(2) }}</span>
+        <span class="amount">{{ formatAT(cart.subtotal) }}</span>
       </div>
       <div class="line">
         <span class="label">Discounts applied:</span>
-        <span class="amount">-€ {{ cart.discountsApplied.toFixed(2) }}</span>
+        <span class="amount">-{{ formatAT(cart.discountsApplied) }}</span>
       </div>
       <div class="line">
         <span class="label">Total after discounts:</span>
-        <span class="amount">€ {{ cart.totalAfterDiscounts.toFixed(2) }}</span>
+        <span class="amount">{{ formatAT(cart.totalAfterDiscounts) }}</span>
       </div>
       <div class="line">
         <span class="label">VAT amount:</span>
-        <span class="amount">€ {{ cart.vatAmount.toFixed(2) }}</span>
+        <span class="amount">{{ formatAT(cart.vatAmount) }}</span>
       </div>
       <div class="line total">
         <span class="label">Total price:</span>
-        <span class="amount">€ {{ cart.totalPayable.toFixed(2) }}</span>
+        <span class="amount">{{ formatAT(cart.totalPayable) }}</span>
       </div>
     </div>
   </div>

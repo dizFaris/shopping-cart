@@ -1,5 +1,6 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
+import { formatAT } from '@/utils/currency'
 const cart = useCartStore()
 
 defineProps({
@@ -23,7 +24,7 @@ defineProps({
         <div class="remove-button" @click="cart.removeItem(item.name)">Remove item</div>
       </div>
 
-      <div class="price">€ {{ item.price.toFixed(2) }}</div>
+      <div class="price">{{ formatAT(item.price) }}</div>
     </div>
   </div>
 </template>

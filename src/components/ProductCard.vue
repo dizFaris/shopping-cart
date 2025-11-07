@@ -1,5 +1,6 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
+import { formatAT } from '@/utils/currency'
 const cart = useCartStore()
 
 defineProps({
@@ -10,7 +11,7 @@ defineProps({
 <template>
   <div class="product-wrapper">
     <div class="name">{{ product.name }}</div>
-    <div class="price">€ {{ product.price.toFixed(2) }}</div>
+    <div class="price">{{ formatAT(product.price) }}</div>
     <div class="category">{{ product.category }}</div>
     <div class="button-wrapper">
       <button @click="cart.addItem(product)">Add to cart</button>
@@ -35,6 +36,9 @@ defineProps({
   .category {
     flex: 2;
     text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .button-wrapper {
