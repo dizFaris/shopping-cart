@@ -37,6 +37,8 @@ src/
  │   └─ ProductList.vue     # List of ProductCard components
  ├─ stores/
  │   └─ cart.js             # Pinia store - core logic (discounts, totals, VAT)
+ ├─ utils/
+ │   └─ currency.js         # Utility for locale-specific (Austrian) currency formatting
  ├─ App.vue
  └─ main.js
 ```
@@ -96,8 +98,8 @@ The `active` property allows multiple bulk discounts to exist in the rules array
 - Removing items:  
    Items with a count of 0 are automatically removed from the cart.
 
-- Floating-point precision:  
-   Prices and discounts are rounded to two decimal places.
+- Currency formatting:  
+   Prices are displayed correctly in Euros.
 
 ## 🧪 Testing
 
